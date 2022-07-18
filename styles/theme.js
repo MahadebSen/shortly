@@ -20,6 +20,7 @@ const theme = {
     },
   },
   typography: {
+    font: "'Poppins', sans-serif",
     fontSize: "18px",
     fontWeights: [500, 700],
   },

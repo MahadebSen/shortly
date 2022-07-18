@@ -1,6 +1,19 @@
 import Head from "next/head";
 import Link from "next/link";
-import { Navbar } from "../styles/Components.styles";
+import Image from "next/image";
+import people from "../Images/Assets/people working.png";
+
+import {
+  Background,
+  Banner,
+  Navbar,
+  P,
+  RecognitionContainer,
+  ShortLinkSection,
+  StatisticsHeading,
+  SubHeading,
+} from "../styles/Components.styles";
+import EachRecognition from "../styles/EachRecognition";
 
 export default function Home() {
   return (
@@ -33,6 +46,45 @@ export default function Home() {
           </Link>
         </ul>
       </Navbar>
+
+      <Banner>
+        <p>
+          MORE THAN JUST <br />
+          SHORTER LINKS
+        </p>
+        <Image
+          width={270}
+          height={270}
+          alt="peoples are working"
+          src={people}
+        />
+      </Banner>
+
+      <Background>
+        <ShortLinkSection>
+          <div>
+            <input placeholder="Shorten a link here..." type="text" />
+            <button>Shorten it!</button>
+          </div>
+        </ShortLinkSection>
+
+        <StatisticsHeading>
+          <p>Advanced Statistics</p>
+        </StatisticsHeading>
+
+        <SubHeading>
+          <P>
+            Track how your links are performing across the web with <br /> our
+            advanced statistics dashboard.
+          </P>
+        </SubHeading>
+
+        <RecognitionContainer>
+          <EachRecognition />
+          <EachRecognition />
+          <EachRecognition />
+        </RecognitionContainer>
+      </Background>
     </div>
   );
 }
