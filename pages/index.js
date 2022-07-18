@@ -8,7 +8,7 @@ import facebook from "../Images/Assets/icon-facebook.svg";
 import twitter from "../Images/Assets/icon-twitter.svg";
 import pinterest from "../Images/Assets/icon-pinterest.svg";
 import instagram from "../Images/Assets/icon-instagram.svg";
-
+import theme from "../styles/theme";
 import {
   Background,
   Banner,
@@ -26,6 +26,7 @@ import {
   Ul,
 } from "../styles/Components.styles";
 import EachRecognition from "../styles/EachRecognition";
+import EachShortedLink from "../styles/EachShortedLink";
 
 export default function Home() {
   return (
@@ -76,10 +77,15 @@ export default function Home() {
         <ShortLinkSection>
           <form>
             <input placeholder="Shorten a link here..." type="text" />
-            <Button p="10px 30px" round="5px">
+            <Button p="10px 30px" round="5px" bgc={theme.colors.primary.cyan}>
               Shorten it!
             </Button>
           </form>
+          <div>
+            <EachShortedLink></EachShortedLink>
+            <EachShortedLink></EachShortedLink>
+            <EachShortedLink></EachShortedLink>
+          </div>
         </ShortLinkSection>
 
         <StatisticsHeading>
@@ -102,7 +108,7 @@ export default function Home() {
         <BoostLinkSection>
           <div>
             <p>Boost your links today</p>
-            <Button p="12px 30px" round="50px">
+            <Button p="12px 30px" round="50px" bgc={theme.colors.primary.cyan}>
               Get Started
             </Button>
           </div>

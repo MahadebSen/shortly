@@ -50,12 +50,15 @@ const Background = styled.section`
 
 const ShortLinkSection = styled.section`
   margin: 0 93px;
+
+  @media (max-width: ${sm}) {
+    margin: 0 15px;
+  }
   & form {
     background-image: url("../Meteor.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    padding: 10px 20px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -65,19 +68,87 @@ const ShortLinkSection = styled.section`
     position: relative;
     bottom: 57px;
 
+    @media (max-width: ${sm}) {
+      display: block;
+      padding: 20px 0;
+      text-align: center;
+
+      & button {
+        padding: 12px 95px;
+        font-size: large;
+      }
+    }
+
     & input {
       display: block;
       width: 490px;
       height: 40px;
-      padding-left: 17px;
+      padding: 0 17px;
+      border: solid ${secondary.red} 2px;
       border-radius: 5px;
       font-family: ${font};
       font-size: 14px;
       color: ${secondary.red};
       outline: 0;
+      @media (max-width: ${sm}) {
+        width: 285px;
+        height: 50px;
+        font-size: large;
+        margin: 0 auto;
+        margin-bottom: 35px;
+      }
     }
   }
   & div {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: -35px;
+    margin-bottom: 63px;
+  }
+`;
+
+const EachLinkSection = styled.section`
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 20px;
+  border-radius: 7px;
+  color: ${primary.darkViolet};
+  font-size: 14px;
+  @media (max-width: ${sm}) {
+    display: block;
+    padding: 0;
+    padding: 0 12px;
+
+    & p {
+      border-bottom: solid ${neutral.gray} 1px;
+      margin: 0;
+      padding: 12px 0;
+    }
+    & button {
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 15px;
+      padding: 12px 120px;
+    }
+  }
+  & div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 20px;
+    margin: 0;
+    color: ${primary.cyan};
+    @media (max-width: ${sm}) {
+      display: block;
+      & p {
+        border: 0;
+      }
+    }
   }
 `;
 
@@ -85,12 +156,20 @@ const StatisticsHeading = styled.section`
   text-align: center;
   font-size: 33px;
   margin-block-end: -1em;
+  @media (max-width: ${sm}) {
+    font-size: 28px;
+  }
 `;
 
 const SubHeading = styled.div`
   text-align: center;
   margin-block-start: 40px;
   margin-bottom: 110px;
+  @media (max-width: ${sm}) {
+    margin: 0 15px;
+    margin-top: 45px;
+    margin-bottom: 80px;
+  }
 `;
 
 const RecognitionContainer = styled.div`
@@ -99,12 +178,24 @@ const RecognitionContainer = styled.div`
   gap: 70px;
   margin: 0 25px;
   margin-bottom: 92px;
+
+  @media (max-width: ${sm}) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const EachRecognitionStyle = styled.div`
   background-color: white;
   padding: 10px 25px;
   border-radius: 5px;
+
+  @media (max-width: ${sm}) {
+    text-align: center;
+    & p {
+      margin-top: 0;
+    }
+  }
+
   & div {
     background-color: ${primary.darkViolet};
     border-radius: 100%;
@@ -115,6 +206,12 @@ const EachRecognitionStyle = styled.div`
     align-items: center;
     margin-top: -43px;
     margin-bottom: 20px;
+
+    @media (max-width: ${sm}) {
+      margin: 0 auto;
+      position: relative;
+      bottom: 40px;
+    }
   }
 `;
 
@@ -181,7 +278,7 @@ const P = styled.p`
 const Button = styled.button`
   padding: ${(props) => props.p};
   border-radius: ${(props) => props.round};
-  background-color: ${primary.cyan};
+  background-color: ${(props) => props.bgc};
   color: white;
   border: 0px;
   font-family: ${font};
@@ -207,19 +304,17 @@ const Ul = styled.ul`
   }
 `;
 
-const Div = styled.div``;
-
 export {
   Navbar,
   Banner,
   Background,
   ShortLinkSection,
+  EachLinkSection,
   StatisticsHeading,
   SubHeading,
   P,
   Button,
   Ul,
-  Div,
   RecognitionContainer,
   EachRecognitionStyle,
   BoostLinkSection,
