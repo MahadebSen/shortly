@@ -2,16 +2,28 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import people from "../Images/Assets/people working.png";
+import logo from "../Images/Assets/logo.svg";
+import logo2 from "../Images/Assets/logo_white.svg";
+import facebook from "../Images/Assets/icon-facebook.svg";
+import twitter from "../Images/Assets/icon-twitter.svg";
+import pinterest from "../Images/Assets/icon-pinterest.svg";
+import instagram from "../Images/Assets/icon-instagram.svg";
 
 import {
   Background,
   Banner,
+  BoostLinkSection,
+  Button,
+  Footer,
+  FooterContainer,
+  FooterLogoPart,
   Navbar,
   P,
   RecognitionContainer,
   ShortLinkSection,
   StatisticsHeading,
   SubHeading,
+  Ul,
 } from "../styles/Components.styles";
 import EachRecognition from "../styles/EachRecognition";
 
@@ -26,7 +38,7 @@ export default function Home() {
 
       <Navbar>
         <div>
-          <p>Shortly</p>
+          <Image width={85} height={25} alt="logo" src={logo} />
         </div>
         <ul>
           <Link href="">
@@ -62,10 +74,12 @@ export default function Home() {
 
       <Background>
         <ShortLinkSection>
-          <div>
+          <form>
             <input placeholder="Shorten a link here..." type="text" />
-            <button>Shorten it!</button>
-          </div>
+            <Button p="10px 30px" round="5px">
+              Shorten it!
+            </Button>
+          </form>
         </ShortLinkSection>
 
         <StatisticsHeading>
@@ -84,7 +98,92 @@ export default function Home() {
           <EachRecognition />
           <EachRecognition />
         </RecognitionContainer>
+
+        <BoostLinkSection>
+          <div>
+            <p>Boost your links today</p>
+            <Button p="12px 30px" round="50px">
+              Get Started
+            </Button>
+          </div>
+        </BoostLinkSection>
       </Background>
+
+      <FooterContainer>
+        <Footer>
+          <FooterLogoPart>
+            <section>
+              <Image width={80} height={25} alt="Logo" src={logo2} />
+              <section>
+                <Link href="">
+                  <a>
+                    <Image
+                      width={20}
+                      height={17}
+                      alt="Facebook"
+                      src={facebook}
+                    />
+                  </a>
+                </Link>
+                <Link href="">
+                  <a>
+                    <Image
+                      style={{}}
+                      width={20}
+                      height={17}
+                      alt="Twitter"
+                      src={twitter}
+                    />
+                  </a>
+                </Link>
+                <Link href="">
+                  <a>
+                    <Image
+                      style={{}}
+                      width={20}
+                      height={17}
+                      alt="Pinterest"
+                      src={pinterest}
+                    />
+                  </a>
+                </Link>
+                <Link href="">
+                  <a>
+                    <Image
+                      style={{}}
+                      width={20}
+                      height={17}
+                      alt="Instagram"
+                      src={instagram}
+                    />
+                  </a>
+                </Link>
+              </section>
+            </section>
+          </FooterLogoPart>
+          <div>
+            <Ul>
+              <p>Features</p>
+              <li>Link Shortening</li>
+              <li>Branded Links</li>
+              <li>Analytics</li>
+            </Ul>
+            <Ul>
+              <p>Resources</p>
+              <li>Blog</li>
+              <li>Developers</li>
+              <li>Support</li>
+            </Ul>
+            <Ul>
+              <p>Company</p>
+              <li>About</li>
+              <li>Our team</li>
+              <li>Careers</li>
+              <li>Contact</li>
+            </Ul>
+          </div>
+        </Footer>
+      </FooterContainer>
     </div>
   );
 }
