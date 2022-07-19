@@ -4,6 +4,7 @@ import Image from "next/image";
 import people from "../Images/Assets/people working.png";
 import logo from "../Images/Assets/logo.svg";
 import logo2 from "../Images/Assets/logo_white.svg";
+import menu from "../Images/Assets/menu bar.svg";
 import facebook from "../Images/Assets/icon-facebook.svg";
 import twitter from "../Images/Assets/icon-twitter.svg";
 import pinterest from "../Images/Assets/icon-pinterest.svg";
@@ -14,9 +15,11 @@ import {
   Banner,
   BoostLinkSection,
   Button,
+  ExtraLogoSection,
   Footer,
   FooterContainer,
   FooterLogoPart,
+  Menubar,
   Navbar,
   P,
   RecognitionContainer,
@@ -58,6 +61,9 @@ export default function Home() {
             </a>
           </Link>
         </ul>
+        <Menubar>
+          <Image width={50} height={28} alt="menu bar" src={menu} />
+        </Menubar>
       </Navbar>
 
       <Banner>
@@ -124,7 +130,7 @@ export default function Home() {
                 <Link href="">
                   <a>
                     <Image
-                      width={20}
+                      width={18}
                       height={17}
                       alt="Facebook"
                       src={facebook}
@@ -133,20 +139,13 @@ export default function Home() {
                 </Link>
                 <Link href="">
                   <a>
-                    <Image
-                      style={{}}
-                      width={20}
-                      height={17}
-                      alt="Twitter"
-                      src={twitter}
-                    />
+                    <Image width={18} height={17} alt="Twitter" src={twitter} />
                   </a>
                 </Link>
                 <Link href="">
                   <a>
                     <Image
-                      style={{}}
-                      width={20}
+                      width={18}
                       height={17}
                       alt="Pinterest"
                       src={pinterest}
@@ -156,8 +155,7 @@ export default function Home() {
                 <Link href="">
                   <a>
                     <Image
-                      style={{}}
-                      width={20}
+                      width={18}
                       height={17}
                       alt="Instagram"
                       src={instagram}
@@ -189,6 +187,28 @@ export default function Home() {
             </Ul>
           </div>
         </Footer>
+        <ExtraLogoSection>
+          <Link href="">
+            <a>
+              <Image width={18} height={17} alt="Facebook" src={facebook} />
+            </a>
+          </Link>
+          <Link href="">
+            <a>
+              <Image width={18} height={17} alt="Twitter" src={twitter} />
+            </a>
+          </Link>
+          <Link href="">
+            <a>
+              <Image width={18} height={17} alt="Pinterest" src={pinterest} />
+            </a>
+          </Link>
+          <Link href="">
+            <a>
+              <Image width={18} height={17} alt="Instagram" src={instagram} />
+            </a>
+          </Link>
+        </ExtraLogoSection>
       </FooterContainer>
     </div>
   );

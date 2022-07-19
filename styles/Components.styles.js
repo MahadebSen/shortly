@@ -12,6 +12,14 @@ const Navbar = styled.div`
   align-items: center;
   margin: 20px 100px;
 
+  @media (max-width: ${sm}) {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 30px;
+    margin-top: 20px;
+    margin-bottom: 55px;
+  }
+
   & div {
     margin-top: 9px;
   }
@@ -29,6 +37,15 @@ const Navbar = styled.div`
         color: black;
       }
     }
+    @media (max-width: ${sm}) {
+      display: none;
+    }
+  }
+`;
+
+const Menubar = styled.div`
+  @media only screen and (min-width: ${sm}) and (max-width: ${lg}) {
+    display: none;
   }
 `;
 
@@ -41,6 +58,11 @@ const Banner = styled.div`
   color: ${neutral.veryDarkBlue};
   & p {
     margin: 10px 0;
+    @media (max-width: ${sm}) {
+      font-size: 50px;
+      line-height: 60px;
+      padding-bottom: 30px;
+    }
   }
 `;
 
@@ -243,10 +265,19 @@ const Footer = styled.div`
   grid-template-columns: 1fr 2fr;
   padding-bottom: 30px;
 
+  @media (max-width: ${sm}) {
+    grid-template-columns: 1fr;
+    padding-bottom: 20px;
+  }
+
   & div {
     margin-top: 23px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    @media (max-width: ${sm}) {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
   }
 `;
 
@@ -254,6 +285,11 @@ const FooterLogoPart = styled.section`
   margin-left: auto;
   margin-right: auto;
   margin-top: 50px;
+  @media (max-width: ${sm}) {
+    text-align: center;
+    padding-top: 25px;
+  }
+
   & section > section {
     margin-top: 10px;
     display: flex;
@@ -264,6 +300,25 @@ const FooterLogoPart = styled.section`
         color: ${primary.cyan};
       }
     }
+
+    @media (max-width: ${sm}) {
+      display: none;
+    }
+  }
+`;
+
+const ExtraLogoSection = styled.section`
+  @media (max-width: ${sm}) {
+    padding-bottom: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    column-gap: 25px;
+  }
+
+  @media only screen and (min-width: ${sm}) and (max-width: ${lg}) {
+    display: none;
   }
 `;
 
@@ -291,6 +346,11 @@ const Button = styled.button`
 const Ul = styled.ul`
   list-style: none;
   font-size: small;
+
+  @media (max-width: ${sm}) {
+    padding-left: 0;
+  }
+
   & p {
     color: white;
   }
@@ -306,6 +366,7 @@ const Ul = styled.ul`
 
 export {
   Navbar,
+  Menubar,
   Banner,
   Background,
   ShortLinkSection,
@@ -321,4 +382,5 @@ export {
   FooterContainer,
   FooterLogoPart,
   Footer,
+  ExtraLogoSection,
 };
