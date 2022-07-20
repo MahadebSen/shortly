@@ -35,7 +35,6 @@ import { useState } from "react";
 
 export default function Home() {
   const [linkDetails, setLinkDetails] = useState({});
-  const [loading, setLoading] = useState(false);
 
   const shortenHandler = async (e) => {
     e.preventDefault();
@@ -54,6 +53,10 @@ export default function Home() {
     window.getSelection().removeAllRanges();
     window.getSelection().addRange(range);
     document.execCommand("copy");
+    document.getElementById("copy").innerText = "Copied";
+    document.getElementById(
+      "copy"
+    ).style.backgroundColor = `${theme.colors.neutral.veryDarkBlue}`;
   };
 
   return (
@@ -122,6 +125,7 @@ export default function Home() {
                 <div>
                   <p id="short">{linkDetails.result.full_short_link}</p>
                   <Button
+                    id="copy"
                     p="7px 25px"
                     round="5px"
                     bgc={theme.colors.primary.cyan}

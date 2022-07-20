@@ -145,6 +145,7 @@ const EachLinkSection = styled.section`
   border-radius: 7px;
   color: ${primary.darkViolet};
   font-size: 14px;
+
   @media (max-width: ${sm}) {
     display: block;
     padding: 0;
