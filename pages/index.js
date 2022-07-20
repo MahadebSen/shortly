@@ -15,6 +15,8 @@ import {
   Banner,
   BoostLinkSection,
   Button,
+  EachLinkSection,
+  Error,
   ExtraLogoSection,
   Footer,
   FooterContainer,
@@ -29,9 +31,31 @@ import {
   Ul,
 } from "../styles/Components.styles";
 import EachRecognition from "../styles/EachRecognition";
-import EachShortedLink from "../styles/EachShortedLink";
+import { useState } from "react";
 
 export default function Home() {
+  const [linkDetails, setLinkDetails] = useState({});
+  const [loading, setLoading] = useState(false);
+
+  const shortenHandler = async (e) => {
+    e.preventDefault();
+    const userLink = await e.target.link.value;
+    const url = `https://api.shrtco.de/v2/shorten?url=${await userLink}`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        setLinkDetails(data);
+      });
+  };
+
+  const copyHandler = () => {
+    const range = document.createRange();
+    range.selectNode(document.getElementById("short"));
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(range);
+    document.execCommand("copy");
+  };
+
   return (
     <div>
       <Head>
@@ -81,16 +105,35 @@ export default function Home() {
 
       <Background>
         <ShortLinkSection>
-          <form>
-            <input placeholder="Shorten a link here..." type="text" />
+          <form onSubmit={shortenHandler}>
+            <input
+              placeholder="Shorten a link here..."
+              type="text"
+              name="link"
+            />
             <Button p="10px 30px" round="5px" bgc={theme.colors.primary.cyan}>
               Shorten it!
             </Button>
           </form>
           <div>
-            <EachShortedLink></EachShortedLink>
-            <EachShortedLink></EachShortedLink>
-            <EachShortedLink></EachShortedLink>
+            {linkDetails.ok ? (
+              <EachLinkSection>
+                <p>{linkDetails.result.original_link}</p>
+                <div>
+                  <p id="short">{linkDetails.result.full_short_link}</p>
+                  <Button
+                    p="7px 25px"
+                    round="5px"
+                    bgc={theme.colors.primary.cyan}
+                    onClick={copyHandler}
+                  >
+                    Copy
+                  </Button>
+                </div>
+              </EachLinkSection>
+            ) : (
+              <Error>{linkDetails.error}</Error>
+            )}
           </div>
         </ShortLinkSection>
 
@@ -125,7 +168,7 @@ export default function Home() {
         <Footer>
           <FooterLogoPart>
             <section>
-              <Image width={80} height={25} alt="Logo" src={logo2} />
+              <Image width={85} height={25} alt="Logo" src={logo2} />
               <section>
                 <Link href="">
                   <a>

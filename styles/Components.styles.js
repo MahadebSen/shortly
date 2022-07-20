@@ -51,7 +51,7 @@ const Menubar = styled.div`
 
 const Banner = styled.div`
   text-align: center;
-  font-size: 72px;
+  font-size: 65px;
   font-weight: 700;
   line-height: 83px;
   word-spacing: 10px;
@@ -106,18 +106,22 @@ const ShortLinkSection = styled.section`
       width: 490px;
       height: 40px;
       padding: 0 17px;
-      border: solid ${secondary.red} 2px;
       border-radius: 5px;
       font-family: ${font};
       font-size: 14px;
       color: ${secondary.red};
       outline: 0;
+      ::-webkit-input-placeholder {
+        color: ${secondary.red};
+        opacity: 0.5;
+      }
       @media (max-width: ${sm}) {
         width: 285px;
         height: 50px;
         font-size: large;
         margin: 0 auto;
         margin-bottom: 35px;
+        border: solid ${secondary.red} 2px;
       }
     }
   }
@@ -165,6 +169,7 @@ const EachLinkSection = styled.section`
     column-gap: 20px;
     margin: 0;
     color: ${primary.cyan};
+
     @media (max-width: ${sm}) {
       display: block;
       & p {
@@ -172,6 +177,11 @@ const EachLinkSection = styled.section`
       }
     }
   }
+`;
+
+const Error = styled.p`
+  color: ${secondary.red};
+  text-align: center;
 `;
 
 const StatisticsHeading = styled.section`
@@ -370,6 +380,7 @@ export {
   Banner,
   Background,
   ShortLinkSection,
+  Error,
   EachLinkSection,
   StatisticsHeading,
   SubHeading,
